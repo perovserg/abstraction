@@ -8,7 +8,7 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "mocha --exit ./tests/*.js"
+    "test": "mocha --node-flags -r esm --exit ./tests/*.js"
   },
   "author": "",
   "license": "ISC",
