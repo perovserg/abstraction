@@ -13,6 +13,7 @@ class Network {
      * @param {Boolean} [isBrokenNode]
      */
     createNode(name, isBrokenNode = false) {
+        if (!name) throw new Error('Got empty node name!');
         const node = new Node(this, name, isBrokenNode);
         this._nodes = {...this._nodes, ...{[name]: node}};
     }
