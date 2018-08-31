@@ -6,21 +6,24 @@ import Validator from '../lib/validator';
 
 describe('Validator tests', () => {
     it('should NOT validate data', () => {
+        let isValid;
         try {
-            Validator.validate('');
-            assert.isOk(false, 'Unexpected success');
+            isValid = Validator.validate('');
         } catch (err) {
             debug(err);
         }
+        assert.isNotTrue(isValid, 'Got valid data');
+
     });
 
     it('should validate data', function() {
+        let isValid;
         try {
-            Validator.validate('some data');
-            assert.isOk();
+            isValid = Validator.validate('some data');
         } catch (err) {
             debug(err);
         }
+        assert.isTrue(isValid, 'Got not valid data');
     });
 
 });

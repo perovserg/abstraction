@@ -9,15 +9,16 @@ describe('Network tests', () => {
     it('should NOT create node', () => {
         try {
             network.createNode('');
-            assert.isOk(false, 'Unexpected success');
+            this.fail('Unxpected success');
         } catch (err) {
+            assert.isOk(err.constructor === Error, 'Unxpected type');
             debug(err);
         }
     });
 
     it('should create node', function() {
         network.createNode('node1');
-        assert.isOk(network._nodes);
+        assert.isObject(network._nodes, 'Got not Object');
     });
 
 });
